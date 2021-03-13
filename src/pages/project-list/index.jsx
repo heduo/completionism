@@ -1,7 +1,7 @@
 import { SearchBox } from "./search-box";
 import { List } from "./list";
 import { useState, useEffect } from "react";
-import { cleanObject } from "../../utils/index";
+import { cleanObject, useMounted, useDebounce } from "../../utils/index";
 import * as qs from "qs";
 
 const API_URL = process.env.REACT_APP_API_URL;
@@ -14,22 +14,22 @@ export const ProjectListPage = () => {
         name: '',
         personId: ''
     });
-
-    useEffect(()=>{
+    const debouncedSearch = useDebounce(search, 2000);
+    useMounted(()=>{
         fetch(`${API_URL}/users`).then(async res => {
             if (res.ok) {
                 setUsers(await res.json());
             }
         })
-    }, []) // IMPORTANT: if use [users] will cause infinit loop to send fetch request
+    }) // IMPORTANT: if use [users] will cause infinit loop to send fetch request
 
     useEffect(() => {
-        fetch(`${API_URL}/projects?${qs.stringify(cleanObject(search))}`).then(async res => {
+        fetch(`${API_URL}/projects?${qs.stringify(cleanObject(debouncedSearch))}`).then(async res => {
             if(res.ok){
                 setList(await res.json())
             }
         })
-    }, [search]);
+    }, [debouncedSearch]);
 
 
     return <div>
