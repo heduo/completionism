@@ -1,0 +1,57 @@
+{
+    "users": [
+      {
+        "id": 1,
+        "name": "Derek He"
+      },
+      {
+        "id": 2,
+        "name": "John Doe"
+      },
+      {
+        "id": 3,
+        "name": "Michael Lee"
+      },
+      {
+        "id": 4,
+        "name": "Tim Cook"
+      }
+    ],
+    "projects": [
+      {
+        "id": 1,
+        "name": "React Jira",
+        "personId": 1,
+        "organization": "Jira Group",
+        "created": 1604989757139
+      },
+      {
+        "id": 2,
+        "name": "Uber",
+        "personId": 2,
+        "organization": "Uber Group",
+        "created": 1604989757139
+      },
+      {
+        "id": 3,
+        "name": "Tik Tok",
+        "personId": 2,
+        "organization": "Tik Tok Group",
+        "created": 1546300800000
+      },
+      {
+        "id": 4,
+        "name": "Instagram",
+        "personId": 3,
+        "organization": "Instagram Group",
+        "created": 1604980000011
+      },
+      {
+        "id": 5,
+        "name": "Facebook",
+        "personId": 4,
+        "organization": "Facebook Group",
+        "created": 1546900800000
+      }
+    ]
+  }
