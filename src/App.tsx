@@ -1,4 +1,3 @@
-import React from 'react';
 import {ProjectListPage} from './pages/project-list/index';
 import './App.css';
 
